@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ekstrakurikuler - SMK Nusa Indah</title>
+  
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* STYLE SMK NUSA INDAH - TEMA TREP 3 */
+   :root {
+  --warna-utama: #1e3a8a;
+  --warna-aksen: #fbbf24;
+  --warna-teks: #1f2937;
+  --warna-bg: #f8fafc;
+  }
+    body {
+      font-family: 'Poppins', sans-serif;
+  }
+
+   /* Navbar modern + logo center */
+    .navbar-default {
+      background: var(--warna-utama);
+      border: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      margin-bottom: 0;
+      min-height: 70px;
+    }
+    .navbar-nav > li > a {
+      color: white !important;
+      font-weight: 700;
+      line-height: 40px;
+      transition: 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+
+    /* AKTIF + HOVER = BIRU MUDA TRANSPARAN */
+    .navbar-nav > li.active > a,
+    .navbar-nav > li > a:hover {
+      background: rgba(255,255,255,0.15) !important;
+      color: white !important;
+      border-bottom: 3px solid white;
+    }
+    .navbar-brand img {
+      height: 50px !important;
+      width: auto;
+    }
+    .navbar-toggle .icon-bar {
+      background-color: white;
+    }
+
+    .banner-page {
+  background: linear-gradient(rgba(30,58,138,0.85), rgba(30,58,138,0.85)), url('images/bg-galeri.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 80px 20px; 
+}
+.banner-page .banner-box {
+  background: transparent; 
+  color: white;
+  display: block; 
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: none; /* garis kuning diilangin biar sama kayak galeri */
+}
+.banner-page h1 {
+  font-size: 48px; /* samain ukuran galeri */
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.banner-page p {
+  font-size: 18px;
+  opacity: 0.95;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Box Ekskul */
+    .box-ekskul {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      transition: 0.3s;
+      border-top: 4px solid var(--warna-utama);
+    }
+    .box-ekskul:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    .box-ekskul img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .box-ekskul h3 {
+      color: var(--warna-utama);
+      font-weight: 700;
+      padding: 20px 20px 10px 20px;
+      margin: 0;
+      font-size: 22px;
+    }
+    .box-ekskul p {
+      color: var(--warna-teks);
+      padding: 0 20px 20px 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Responsif HP */
+    @media (max-width: 768px) {
+      .banner-page h1 { font-size: 32px; }
+    }
+
+    /* ====== FOOTER ====== */
+.footer-smk {
+  background: var(--warna-utama);
+  color: white;
+  padding: 50px 0 20px 0;
+  margin-top: 60px;
+}
+
+.footer-smk h4 {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 18px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-smk h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--warna-aksen);
+}
+
+.logo-footer {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.footer-kiri p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d1d5db;
+}
+
+.footer-kontak {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #d1d5db;
+  font-size: 14px;
+}
+
+.footer-kontak li {
+  margin-bottom: 12px;
+}
+
+.sosmed {
+  margin-top: 15px;
+}
+.sosmed a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 50%;
+  margin-right: 8px;
+  transition: 0.3s;
+  text-decoration: none;
+  font-weight: 700;
+}
+.sosmed a:hover {
+  background: var(--warna-aksen);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.footer-bawah {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .footer-smk .col-md-4 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .footer-smk h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- Navbar - SAMA PERSIS KAYAK BERANDA -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle Nav</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="pengajar.html">Pengajar</a></li>
+          <li><a href="sejarah.html">Sejarah</a></li>
+          <li><a href="fasilitas.html">Fasilitas</a></li>
+          <li class="active"><a href="ekskul.html">Ekskul <span class="sr-only">(current)</span></a></li>
+          <li><a href="Galeri.html">Galeri</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jurusan<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="tkj.html">TKJ</a></li>
+            <li><a href="tsm.html">TSM</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Judul Ekskul -->
+<div class="banner-page">
+  <div class="banner-box">
+    <h1>EKSTRAKURIKULER</h1>
+    <p>Kembangkan bakat & minat siswa SMK Nusa Indah</p>
+  </div>
+</div>
+
+  <!-- Isi Ekskul - Box 3 Kolom -->
+  <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="row">
+      
+      <!-- Box 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="box-ekskul">
+          <img src="images/drumband.png" alt="drumband">
+          <h3>Drumband</h3>
+          <p>Melatih disiplin, kekompakan, dan keterampilan bermain musik serta baris-berbaris.</p>
+        </div>
+      </div>
+
+      <!-- Box 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="box-ekskul">
+          <img src="images/pramuka.png" alt="pramuka">
+          <h3>Pramuka</h3>
+          <p>Membentuk karakter mandiri, disiplin, dan jiwa kepemimpinan melalui kegiatan kepramukaan.</p>
+        </div>
+      </div>
+
+      <!-- Box 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="box-ekskul">
+          <img src="images/futsal.png" alt="Futsal">
+          <h3>Futsal</h3>
+          <p>Ekskul olahraga favorit siswa. Meningkatkan keterampilan bermain futsal, kerja sama tim, dan sportivitas.</p>
+        </div>
+      </div>
+
+      <!-- Box 4 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="box-ekskul">
+          <img src="images/menari.png" alt="Menari">
+          <h3>Menari</h3>
+          <p>Mengembangkan bakat seni tari serta melestarikan budaya melalui berbagai pertunjukan.</p>
+        </div>
+      </div>
+
+      <!-- Box 5 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="box-ekskul">
+          <img src="images/hadroh (2).png" alt="Hadroh">
+          <h3>Hadroh</h3>
+          <p>Melestarikan budaya daerah melalui tarian tradisional. Sering tampil di acara sekolah & kabupaten.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="box-ekskul">
+          <img src="images/menjahit.png" alt="Hadroh">
+          <h3>Menjahit</h3>
+          <p>Melestarikan budaya daerah melalui tarian tradisional. Sering tampil di acara sekolah & kabupaten.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="box-ekskul">
+          <img src="images/menyetir.png" alt="Hadroh">
+          <h3>Menyetir</h3>
+          <p>Melestarikan budaya daerah melalui tarian tradisional. Sering tampil di acara sekolah & kabupaten.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer - SAMA PERSIS KAYAK BERANDA -->
+  <footer class="footer-smk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="footer-kiri">
+            <img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah" class="logo-footer">
+            <h4>SMK Nusa Indah</h4>
+            <p>
+              Jl. Trans Blok M Desa Telaga Jernih<br>
+              Kec. Secanggang, Kab. Langkat<br>
+              Sumatera Utara
+			   <p><a href="https://maps.app.goo.gl/VFzoyUsN2knWfqGu9" target="_blank">Lihat di Maps ➡️</a></p>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+          <h4>Jam Operasional</h4>
+          <ul class="footer-kontak">
+            <li>📅 Senin - Kamis : 07.00 - 15.00 WIB</li>
+            <li>📅 Jumat : 07.00 - 11.30 WIB</li>
+            <li>📅 Sabtu : 07.00 - 12.00 WIB</li>
+            <li>📅 Minggu & Tanggal Merah : Libur</li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+          <h4>Hubungi Kami</h4>
+          <ul class="footer-kontak">
+            <li>📞 0831-4686-8730</li>
+            <li>📧 smknusaindah@gmail.com</li>
+            <li>🌐 www.smknusaindah.sch.id</li>
+          </ul>
+          
+          <div class="sosmed">
+              <a href="https://www.facebook.com/profile.php?id=100074307311354" target="_blank">f</a>
+              <a href="https://www.instagram.com/yaspen_nusaindah2020?igsh=MTUxNDlyMmhqbnQ4Zw==" target="_blank">📷</a>
+              <a href="https://youtube.com/@nusaindahentertainment3180?si=Z81bjPsWWlPOYQBB" target="_blank">▶</a>
+            </div> 
+          </div> 
+        </div>
+
+        <div class="footer-bawah">
+          <p>Design by:Indah Rahma Dhani.</p>
+        </div>
+      </div>
+  </footer>
+
+  <script src="bootstrap/js/jQuery.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPDB 2026/2027 - SMK Nusa Indah</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* STYLE SMK NUSA INDAH - TEMA TREP 3 */
+   :root {
+    --warna-utama: #1e3a8a;
+    --warna-aksen: #fbbf24;
+    --warna-teks: #1f2937;
+    --warna-bg: #f8fafc;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--warna-bg);
+    }
+    /* Navbar */
+    .navbar-default {
+      background: var(--warna-utama);
+      border: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      margin-bottom: 0;
+      min-height: 70px;
+    }
+    .navbar-nav > li > a {
+      color: white !important;
+      font-weight: 700;
+      line-height: 40px;
+      transition: 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+    .navbar-nav > li.active > a,
+    .navbar-nav > li > a:hover {
+      background: rgba(255,255,255,0.15) !important;
+      color: white !important;
+      border-bottom: 3px solid white;
+    }
+    .navbar-brand img { height: 50px !important; width: auto; }
+    .navbar-toggle .icon-bar { background-color: white; }
+
+    /* Banner Judul PPDB */
+    .banner-page {
+      background: linear-gradient(135deg, rgba(30,58,138,0.9), rgba(30,58,138,0.9)), url('images/spmb.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .banner-page h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .banner-page h1 span { color: var(--warna-aksen); }
+    .banner-page p { font-size: 18px; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+    /* Box PPDB */
+    .box-ppdb {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(30, 58, 138, 0.1);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      padding: 40px;
+      border-top: 5px solid var(--warna-aksen);
+    }
+    .box-ppdb h2 {
+      color: var(--warna-utama);
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .box-ppdb p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--warna-teks);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .highlight-ppdb {
+      background: #fffbeb;
+      border-left: 4px solid var(--warna-aksen);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+    }
+    .highlight-ppdb ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+    .highlight-ppdb li {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .btn-daftar {
+      background: var(--warna-utama);
+      color: white;
+      padding: 14px 35px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.3s;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .btn-daftar:hover {
+      background: var(--warna-aksen);
+      color: #000;
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+    .btn-wa {
+      background: #25D366;
+      color: white;
+      padding: 14px 35px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.3s;
+      display: inline-block;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+    .btn-wa:hover {
+      background: #1ebc59;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer-smk {
+      background: var(--warna-utama);
+      color: white;
+      padding: 50px 0 20px 0;
+      margin-top: 60px;
+    }
+    .footer-smk h4 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 18px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-smk h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--warna-aksen);
+    }
+    .logo-footer { width: 80px; height: auto; margin-bottom: 15px; }
+    .footer-kiri p { font-size: 14px; line-height: 1.8; color: #d1d5db; }
+    .footer-kontak { list-style: none; padding: 0; margin: 0; color: #d1d5db; font-size: 14px; }
+    .footer-kontak li { margin-bottom: 12px; }
+    .sosmed { margin-top: 15px; }
+    .sosmed a {
+      display: inline-block; width: 35px; height: 35px; background: rgba(255,255,255,0.1); color: white;
+      text-align: center; line-height: 35px; border-radius: 50%; margin-right: 8px; transition: 0.3s; text-decoration: none; font-weight: 700;
+    }
+    .sosmed a:hover { background: var(--warna-aksen); color: #000; transform: translateY(-3px); }
+    .footer-bawah {
+      border-top: 1px solid rgba(255,255,255,0.1); margin-top: 30px; padding-top: 20px;
+      text-align: center; font-size: 13px; color: #9ca3af;
+    }
+
+    @media (max-width: 768px) {
+      .banner-page h1 { font-size: 32px; }
+      .box-ppdb { padding: 25px; margin-top: -30px; }
+      .btn-wa { margin-left: 0; }
+      .footer-smk .col-md-4 { margin-bottom: 30px; text-align: center; }
+      .footer-smk h4::after { left: 50%; transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle Nav</span>
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="pengajar.html">Pengajar</a></li>
+          <li><a href="sejarah.html">Sejarah</a></li>
+          <li><a href="fasilitas.html">Fasilitas</a></li>
+          <li><a href="ekskul.html">Ekskul</a></li>
+          <li><a href="Galeri.html">Galeri</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jurusan<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="tkj.html">TKJ</a></li>
+              <li><a href="tsm.html">TSM</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Judul PPDB -->
+  <div class="banner-page">
+    <div class="container">
+      <h1>PENERIMAAN SISWA BARU <span>2026/2027</span></h1>
+      <p>Wujudkan Mimpimu Menjadi Teknisi Profesional Bersama SMK Nusa Indah</p>
+    </div>
+  </div>
+
+  <!-- Isi PPDB -->
+  <div class="container" style="margin-bottom: 50px;">
+    <div class="box-ppdb">
+      
+      <h2>🎓 Selamat Datang Calon Siswa/i SMK Nusa Indah!</h2>
+      
+      <p>
+        SMK Nusa Indah membuka kesempatan bagi putra-putri terbaik Secanggang dan sekitarnya untuk bergabung menjadi bagian dari keluarga besar kami. Kami hadir untuk mencetak lulusan yang <strong>Siap Kerja, Mandiri, dan Berakhlak Mulia</strong> sesuai dengan tuntutan Industri 4.0.
+      </p>
+
+      <p>
+        Dengan tenaga pengajar kompeten, fasilitas praktik yang lengkap, dan kerjasama dengan DUDI, kami pastikan kamu tidak hanya dapat ijazah, tapi juga <strong>skill yang dibutuhkan dunia kerja</strong>.
+      </p>
+
+      <div class="highlight-ppdb">
+        <strong>📌 Program Keahlian Unggulan:</strong>
+        <ul>
+          <li><strong>TKJ - Teknik Komputer dan Jaringan:</strong> Jago di bidang Jaringan, Server, dan IT Support.</li>
+          <li><strong>TSM - Teknik Sepeda Motor:</strong> Mahir bongkar pasang, diagnosa, dan service motor injeksi modern.</li>
+        </ul>
+      </div>
+
+      <p>
+        <strong>Keunggulan SMK Nusa Indah:</strong> Beasiswa bagi siswa berprestasi, Prakerin di bengkel dan perusahaan ternama, Ekstrakurikuler aktif, dan lingkungan sekolah yang aman, bersih, dan agamis.
+      </p>
+
+      <div style="text-align: center;">
+        <a href="pendaftarn.html" class="btn-daftar">📝 Daftar Sekarang</a>
+        <a href="https://wa.me/6283146868730" target="_blank" class="btn-wa">💬 Tanya via WhatsApp</a>
+      </div>
+
+      <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #6b7280;">
+        📍 Jl. Trans Blok M Desa Telaga Jernih, Kec. Secanggang, Kab. Langkat<br>
+        Kuota Terbatas! Ayo amankan kursimu sebelum penuh.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-smk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="footer-kiri">
+            <img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah" class="logo-footer">
+            <h4>SMK Nusa Indah</h4>
+            <p>
+              Jl. Trans Blok M Desa Telaga Jernih<br>
+              Kec. Secanggang, Kab. Langkat<br>
+              Sumatera Utara<br>
+              <a href="https://maps.app.goo.gl/VFzoyUsN2knWfqGu9" target="_blank" rel="noopener" style="color: var(--warna-aksen);">Lihat di Maps ➡️</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h4>Jam Operasional</h4>
+          <ul class="footer-kontak">
+            <li>📅 Senin - Kamis : 07.00 - 15.00 WIB</li>
+            <li>📅 Jumat : 07.00 - 11.30 WIB</li>
+            <li>📅 Sabtu : 07.00 - 12.00 WIB</li>
+            <li>📅 Minggu & Tanggal Merah : Libur</li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h4>Hubungi Kami</h4>
+          <ul class="footer-kontak">
+            <li>📞 0831-4686-8730</li>
+            <li>📧 smknusaindah@gmail.com</li>
+            <li>🌐 www.smknusaindah.sch.id</li>
+          </ul>
+          <div class="sosmed">
+              <a href="https://www.facebook.com/profile.php?id=100074307311354" target="_blank">f</a>
+              <a href="https://www.instagram.com/yaspen_nusaindah2020?igsh=MTUxNDlyMmhqbnQ4Zw==" target="_blank">📷</a>
+              <a href="https://youtube.com/@nusaindahentertainment3180?si=Z81bjPsWWlPOYQBB" target="_blank">▶</a>
+            </div> 
+          </div>
+        </div>
+
+        <div class="footer-bawah">
+          <p>Design by:Indah Rahma Dhani.</p>
+        </div>
+      </div>
+  </footer>
+
+  <script src="bootstrap/js/jQuery.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

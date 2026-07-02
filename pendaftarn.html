@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Pendaftaran PPDB - SMK Nusa Indah</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+   :root {
+    --warna-utama: #1e3a8a;
+    --warna-aksen: #fbbf24;
+    --warna-teks: #1f2937;
+    --warna-bg: #f8fafc;
+    }
+
+    body { font-family: 'Poppins', sans-serif; background: var(--warna-bg); }
+    .navbar-default { background: var(--warna-utama); border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 999; }
+    .navbar-nav > li > a { color: white !important; font-weight: 700; line-height: 40px; }
+    .navbar-brand img { height: 50px !important; }
+    
+    .banner-form {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      color: white; text-align: center; padding: 60px 20px;
+    }
+    .banner-form h1 { font-size: 36px; font-weight: 700; margin-bottom: 10px; }
+    .banner-form p { font-size: 16px; opacity: 0.9; }
+
+    .form-box {
+      background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(30, 58, 138, 0.1);
+      padding: 40px; margin-top: -40px; position: relative; z-index: 10; border-top: 5px solid var(--warna-aksen);
+    }
+    .form-box h3 {
+      color: var(--warna-utama); font-weight: 700; font-size: 22px; margin-bottom: 20px;
+      border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;
+    }
+    .form-group label { font-weight: 600; color: var(--warna-teks); margin-bottom: 8px; }
+    .form-control {
+      border-radius: 8px; padding: 12px 15px; height: auto; border: 2px solid #d1d5db;
+      transition: 0.3s;
+    }
+    .form-control:focus {
+      border-color: var(--warna-utama); box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    }
+    .btn-kirim {
+      background: var(--warna-utama); color: white; padding: 14px 35px; border-radius: 8px;
+      border: none; font-size: 16px; font-weight: 700; transition: 0.3s; width: 100%;
+    }
+    .btn-kirim:hover { background: var(--warna-aksen); color: #000; }
+    .note-info {
+      background: #eff6ff; border-left: 4px solid var(--warna-utama);
+      padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 14px;
+    }
+
+    .footer-smk { background: var(--warna-utama); color: white; padding: 50px 0 20px 0; margin-top: 60px; }
+    .footer-smk h4 { font-weight: 700; margin-bottom: 20px; font-size: 18px; position: relative; padding-bottom: 10px; }
+    .footer-smk h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--warna-aksen); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah"></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner-form">
+    <div class="container">
+      <h1>Formulir Pendaftaran PPDB</h1>
+      <p>Tahun Ajaran 2026/2027 - SMK Nusa Indah</p>
+    </div>
+  </div>
+
+  <!-- Form Pendaftaran -->
+  <div class="container" style="margin-bottom: 50px;">
+    <div class="form-box">
+      
+      <div class="note-info">
+        <strong>📢 Perhatian:</strong> Isi data dengan benar dan sesuai ijazah/SKHUN. Data yang tidak valid akan menggugurkan pendaftaran. Berkas asli dibawa saat verifikasi.
+      </div>
+
+      <form action="simpan-pendaftaran.php" method="POST" enctype="multipart/form-data">
+        
+        <!-- DATA CALON SISWA -->
+        <h3>A. Data Calon Siswa</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nama Lengkap Sesuai Ijazah *</label>
+              <input type="text" name="nama_lengkap" class="form-control" placeholder="Contoh: Muhammad Rizki" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>NIK *</label>
+              <input type="number" name="nik" class="form-control" placeholder="16 digit NIK" required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Tempat Lahir *</label>
+              <input type="text" name="tempat_lahir" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Tanggal Lahir *</label>
+              <input type="date" name="tanggal_lahir" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Jenis Kelamin *</label>
+              <select name="jenis_kelamin" class="form-control" required>
+                <option value="">- Pilih -</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>No. WhatsApp Aktif *</label>
+              <input type="number" name="no_wa" class="form-control" placeholder="08xxxxxxxxxx" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" class="form-control" placeholder="nama@email.com">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Alamat Lengkap Sesuai KK *</label>
+              <textarea name="alamat" class="form-control" rows="3" required></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILIHAN JURUSAN -->
+        <h3>B. Pilihan Program Keahlian</h3>
+        <div class="form-group">
+          <label>Pilih 1 Jurusan *</label>
+          <select name="jurusan" class="form-control" required>
+            <option value="">- Pilih Jurusan -</option>
+            <option value="TKJ">TKJ - Teknik Komputer dan Jaringan</option>
+            <option value="TSM">TSM - Teknik Sepeda Motor</option>
+          </select>
+        </div>
+
+        <!-- DATA SEKOLAH ASAL -->
+        <h3>C. Data Sekolah Asal</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nama SMP/MTs Asal *</label>
+              <input type="text" name="asal_sekolah" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>NISN *</label>
+              <input type="number" name="nisn" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Nilai Rata-rata UN/Ijazah *</label>
+              <input type="number" step="0.01" name="nilai_rata" class="form-control" placeholder="Contoh: 85.50" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATA ORANG TUA -->
+        <h3>D. Data Orang Tua/Wali</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nama Ayah/Wali *</label>
+              <input type="text" name="nama_ayah" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nama Ibu *</label>
+              <input type="text" name="nama_ibu" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Pekerjaan Ayah</label>
+              <input type="text" name="kerja_ayah" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Pekerjaan Ibu</label>
+              <input type="text" name="kerja_ibu" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <!-- UPLOAD BERKAS -->
+        <h3>E. Upload Berkas</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Scan Ijazah/SKHUN PDF/JPG *</label>
+              <input type="file" name="ijazah" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Scan KK PDF/JPG *</label>
+              <input type="file" name="kk" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Pas Foto 3x4 Background Merah *</label>
+              <input type="file" name="foto" class="form-control" accept=".jpg,.jpeg,.png" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Scan Akta Kelahiran PDF/JPG *</label>
+              <input type="file" name="akta" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;">
+          <label>
+            <input type="checkbox" name="setuju" required> 
+            Saya menyatakan data yang diisi adalah benar. Jika dikemudian hari terdapat ketidaksesuaian, saya bersedia dibatalkan sebagai siswa.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-kirim">✅ Kirim Pendaftaran</button>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-smk">
+    <div class="container text-center">
+      <p>© 2026 SMK Nusa Indah | Panitia PPDB 2026/2027</p>
+      <p>Hubungi: 0831-4686-8730</p>
+    </div>
+  </footer>
+
+  <script src="bootstrap/js/jQuery.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navbar SMK Nusa Indah dengan Bootstrap</title>
+  
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* STYLE SMK NUSA INDAH - TEMA TREP 3 */
+   :root {
+  --warna-utama: #1e3a8a; /* Biru Dongker - Navbar, Judul */
+  --warna-aksen: #fbbf24; /* Kuning Emas - Hover, Garis, Menu Aktif */
+  --warna-teks: #1f2937; /* Abu Gelap - Tulisan isi */
+  --warna-bg: #f8fafc;   /* Abu Muda - Background section */}
+    body {
+      font-family: 'Poppins', sans-serif;}
+
+    /* Navbar modern + logo center */
+    .navbar-default {
+      background: var(--warna-utama);
+      border: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      margin-bottom: 0;
+      min-height: 70px;}
+
+      .navbar-nav > li > a {
+      color: white !important;
+      font-weight: 700;
+      line-height: 40px;
+      transition: 0.3s;
+      border-bottom: 2px solid transparent;}
+    
+    /* HILANGIN KOTAK ABU + GANTI WARNA KUNING */
+    .navbar-nav > li.active > a,
+    .navbar-nav > li > a:hover {
+      background: #334155 !important;
+      color: var(--warna-utama) !important;
+      border-bottom: 2px solid var(--warna-aksen);}
+    
+    .navbar-brand img {
+      height: 50px !important;
+      width: auto;}
+    
+    /* Hamburger menu putih */
+    .navbar-toggle .icon-bar {
+      background-color: white;}
+
+       /* Banner 2 baris - Box atas, Marquee bawah */
+    .banner-gerak {
+      background: #2563eb;
+      color: white;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;}
+
+    .banner-box {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center; }
+  
+    .banner-marquee {
+      width: 100%;
+      overflow: hidden;
+      font-weight: 500;
+      font-size: 15px;}
+    .banner-marquee span {
+      animation: jalan 25s linear infinite;
+      white-space: nowrap;
+      display: inline-block;
+      padding-left: 100%;}
+
+    @keyframes jalan {
+     0% { transform: translateX(0); }
+     100% { transform: translateX(-100%); }}
+
+     /* ====== BOX HITAM FULL CAROUSEL ====== */
+.carousel-caption {
+  background: rgba(0,0,0,0.6);
+  padding: 0;
+  border-radius: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;}
+
+.carousel-caption h1 { 
+  font-size: 70px;
+  text-shadow: 3px 3px 8px #000; 
+  margin: 15px 0;
+  font-weight: 700;}
+
+.carousel-caption h2, 
+.carousel-caption h3 { 
+  font-size: 28px;
+  text-shadow: 2px 2px 5px #000;
+  margin: 5px 0;}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+  .carousel-caption h1 { font-size: 36px; }
+  .carousel-caption h2, 
+  .carousel-caption h3 { font-size: 16px; }}
+
+  /* Box Sambutan Kepsek */
+.foto-kepsek img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border: 5px solid white;
+  margin-bottom: 15px;}
+
+.foto-kepsek h4 {
+  color: var(--warna-utama);
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 5px;}
+
+.foto-kepsek p {
+  color: #666;
+  font-size: 14px;}
+
+.isi-sambutan {
+  background: white;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: relative;
+  min-height: 400px;}
+
+.isi-sambutan p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--warna-teks);
+  text-align: justify;}
+
+.tanda-kutip {
+  font-size: 60px;
+  color: var(--warna-utama);
+  font-family: Georgia, serif;
+  line-height: 0;}
+
+.tanda-kutip.tutup {
+  float: right;}
+
+.ttd {
+  margin-top: 30px;
+  text-align: right;}
+
+.ttd p {
+  margin: 0;
+  line-height: 1.5;}
+
+@media (max-width: 768px) {
+  .foto-kepsek {
+    margin-bottom: 30px;}
+
+  .isi-sambutan {
+    padding: 25px;}}
+
+    .banner-page {
+      background: linear-gradient(rgba(30,58,138,0.85), rgba(30,58,138,0.85)), url('images/bg-ekskul.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;}
+
+    .banner-page h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;}
+
+    .banner-page p {
+      font-size: 18px;
+      opacity: 0.9;}
+
+      /* Box Visi Misi */
+      .box-visimisi {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-top: 5px solid var(--warna-utama);
+        transition: 0.3s;
+        height: 100%;}
+
+      .box-visimisi:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);}
+
+      .box-visimisi h3 {
+        color: var(--warna-utama);
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 24px;}
+
+      .box-visimisi p, .box-visimisi li {
+        color: var(--warna-teks);
+        font-size: 15px;
+        line-height: 1.8;}
+
+      .box-visimisi ul {
+        padding-left: 20px;}
+
+      .box-visimisi li {
+        margin-bottom: 8px;}
+
+      .icon-visi {
+        font-size: 40px;
+        margin-bottom: 10px;}
+
+      @media (max-width: 768px) {
+        .box-visimisi {
+          margin-bottom: 20px;}}
+          .box-berita:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+          }
+          .img-berita {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+          }
+          .berita-body {
+            padding: 20px;
+          }
+          .tanggal-berita {
+            color: var(--warna-aksen);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+          }
+          .box-berita h3 {
+            color: var(--warna-utama);
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+          }
+          .box-berita p {
+            color: var(--warna-teks);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+          }
+          .btn-baca {
+            background: var(--warna-utama);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+          }
+          .btn-baca:hover {
+            background: var(--warna-aksen);
+            color: #000;
+            text-decoration: none;
+          }
+           /* Box Pengajar */
+    .box-pengajar {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      margin-bottom: 30px;
+      transition: 0.3s;
+      border-bottom: 4px solid transparent;
+    }
+    .box-pengajar:hover {
+      transform: translateY(-8px);
+      border-bottom: 4px solid var(--warna-utama);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+    
+    .foto-pengajar-wrapper {
+      overflow: hidden;
+      height: 240px;
+    }
+    .foto-pengajar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+    .box-pengajar:hover .foto-pengajar { transform: scale(1.1); }
+
+    .pengajar-body { padding: 20px 15px; }
+    .nama-pengajar {
+      color: var(--warna-utama);
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 5px;
+      min-height: 44px; /* Biar nama 2 baris tetap rapi */
+    }
+    .jabatan-pengajar {
+      background: var(--warna-aksen);
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .mapel-pengajar {
+      color: var(--warna-teks);
+      font-size: 14px;
+      margin: 0;
+    }
+      /* ====== FOOTER ====== */
+          .footer-smk {
+            background: var(--warna-utama);
+            color: white;
+            padding: 50px 0 20px 0;
+            margin-top: 60px;}
+
+          .footer-smk h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;}
+
+          .footer-smk h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--warna-aksen);}
+
+          .logo-footer {
+            width: 80px;
+            height: auto;
+            margin-bottom: 15px;}
+
+          .footer-kiri p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #d1d5db;}
+
+          .footer-link, .footer-kontak {
+            list-style: none;
+            padding: 0;
+            margin: 0;}
+
+          .footer-link li, .footer-kontak li {
+            margin-bottom: 12px;}
+
+          .footer-link a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: 0.3s;}
+
+          .footer-link a:hover {
+            color: var(--warna-aksen);
+            padding-left: 5px;}
+
+          .footer-kontak {
+            color: #d1d5db;
+            font-size: 14px;}
+
+          .sosmed {
+            margin-top: 15px;}
+
+          .sosmed a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-align: center;
+            line-height: 35px;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: 0.3s;
+            text-decoration: none;
+            font-weight: 700;}
+
+          .sosmed a:hover {
+            background: var(--warna-aksen);
+            color: #000;
+            transform: translateY(-3px);}
+
+          .footer-bawah {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #9ca3af;}
+
+          .footer-col a{
+              color: #d1d5db;}
+
+          @media (max-width: 768px) {
+            .footer-smk .col-md-4 {
+              margin-bottom: 30px;
+              text-align: center;
+            }
+            .footer-smk h4::after {
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            .sosmed a {
+              margin: 5px;}}
+        </style>
+      </head>
+      <body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle Nav</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="smk_nusaindah.html">Beranda <span class="sr-only">(current)</span></a></li>
+          <li><a href="pengajar.html">Pengajar</a></li>
+          <li><a href="sejarah.html">Sejarah</a></li>
+          <li><a href="fasilitas.html">Fasilitas</a></li>
+          <li><a href="ekskul.html">Ekskul</a></li>
+          <li><a href="Galeri.html">Galeri</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jurusan<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="tkj.html">TKJ</a></li>
+            <li><a href="tsm.html">TSM</a></li>
+				</ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Berjalan - Box di atas, Text di bawah -->
+  <div class="banner-gerak">
+    <div class="banner-box">
+    </div>
+    
+    <div class="banner-marquee">
+      <span>
+        Selamat Datang Di Website SMK NUSA INDAH T.A 2026/2027 Mari sukseskan program 7 anak Indonesia hebat: 1. Bangun pagi 2. Beribadah 3. Berolahraga 4. Makan sehat dan bergizi 5. Gemar belajar 6. Bermasyarakat 7. Tidur cepat untuk memulihkan energi
+      </span>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12"> 
+        <div id="contoh-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="images/yys.png" alt="SMK Nusa Indah" class="img-responsive" style="width:100%">
+              <div class="carousel-caption">
+                <h2><b>SELAMAT DATANG DI WEBSITE</b></h2>
+                <h1><b>SMK NUSA INDAH</b></h1>
+                <h3><b>JL. TRANS BLOK M DESA TELAGA JERNIH KEC. SECANGGANG KAB. LANGKAT</b></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Kata Sambutan Kepala Sekolah -->
+<section id="sambutan" style="padding: 60px 0; background: var(--warna-bg);">
+  <div class="container">
+    <h2 class="text-center" style="color: var(--warna-utama); font-weight: 700; margin-bottom: 40px;">
+      Kata Sambutan
+    </h2>
+    
+    <div class="row">
+      <div class="col-md-4 col-sm-12 text-center">
+        <div class="foto-kepsek">
+          <img src="images/kepsek.jpeg" alt="Kepala Sekolah SMK Nusa Indah" class="img-responsive">
+          <h4>NURLIANA, S.Pdi,Gr</h4>
+          <p>Kepala Sekolah SMK Nusa Indah</p>
+        </div>
+      </div>
+
+      <div class="col-md-8 col-sm-12">
+        <div class="isi-sambutan">
+          <span class="tanda-kutip">“</span>
+          <p>
+            Assalamu’alaikum Warahmatullahi Wabarakatuh. <br><br>
+            Salam sejahtera untuk kita semua, Puji syukur ke hadirat Tuhan Yang Maha Esa, atas rahmat dan karunia-Nya 
+            SMK Nusa Indah kini telah hadir dengan website sekolah. Website ini kami hadirkan sebagai media informasi, komunikasi, dan transparansi antara sekolah, siswa, orang tua, alumni, serta masyarakat umum. 
+            Melalui website ini, kami berharap seluruh kegiatan akademik, prestasi siswa, program keahlian, serta informasi pendaftaran dapat diakses dengan mudah, cepat, dan akurat.
+            Kami menyadari website ini masih perlu pengembangan. Oleh karena itu, kritik dan saran yang membangun sangat kami harapkan demi kemajuan sekolah ke depan. Akhir kata, semoga website ini bermanfaat dan dapat menjadi jembatan silaturahmi serta motivasi bagi seluruh warga SMK Nusa Indah untuk terus berprestasi dan mengharumkan nama sekolah.
+            <br>Wassalamu’alaikum Warahmatullahi Wabarakatuh.
+          </p>
+          <span class="tanda-kutip tutup">”</span>
+          
+          <div class="ttd">
+            <p><b>NURLIANA, S.Pdi,Gr</b></p>
+            <p>Kepala Sekolah</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Box Visi Misi 2 Kolom -->
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div class="box-visimisi visi">
+        <div class="icon-visi"></div>
+        <h3>VISI</h3>
+        <p>Terwujudnya SMK Nusa Indah sebagai lembaga Diklat yang mampu menyiapkan tamatan menjadi calon tenaga kerja yang trampil, produktif, profesional, dan mandiri berdasarkan kejuruanya masing-masing.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+      <div class="box-visimisi misi">
+        <div class="icon-visi"></div>
+        <h3>MISI</h3>
+        <ul>
+          <li>1. Menanamkan nilai-nilai keimanan dan ketaqwaan terhadap Tuhan Yang maha Esa berdasarkan aqidah Islam</li>
+          <li>2. Melaksanakan pendidikan dan pelatihan dengan disiplin, aktif dan kreatif</li>
+          <li>3. Mendorong dan membantu siswa mengenali dirinya sehingga dapat dikembangkan secara optimal</li>
+          <li>4. Menumbuhkan semangat prestasi secara intensif</li>
+          <li>5. Menyiapkan tenaga kerja yang trampil dan professional dibidang teknologi sehingga mampu bersaing dipasar nasional maupun global.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Isi Berita -->
+  <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    
+    <!-- BARIS 1 -->
+    <div class="row">
+
+      <div class="col-md-4 col-sm-6">
+        <div class="box-berita">
+          <img src="images/spmb.png" alt="Kunjungan Industri" class="img-berita">
+          <div class="berita-body">
+            <div class="tanggal-berita">📅 28 Maret 2026</div>
+            <h3>Penerimaan Siswa Baru T.A 2026/2027</h3>
+            <a href="berrita2.html" class="btn-baca">Baca Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="box-berita">
+          <img src="images/polisi.png" alt="Penerimaan Siswa Baru" class="img-berita">
+          <div class="berita-body">
+            <div class="tanggal-berita">📅 9  Feb 2026</div>
+            <h3>Kunjungan Kapolsek secanggang</h3>
+            <a href="berita1.html" class="btn-baca">Baca Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="box-berita">
+          <img src="images/study tour.png" alt="Juara LKS" class="img-berita">
+          <div class="berita-body">
+            <div class="tanggal-berita">📅 31 Mei 2026</div>
+            <h3>Study Tour Siswa SMK Nusa Indah ke Danau Toba</h3>
+            <a href="#" class="btn-baca">Baca Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOTO INDAH-->
+<div class="container" style="margin-top: 30px; margin-bottom: 50px;">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <img src="images/indah.jpeg" alt="Foto SMK Nusa Indah" 
+           style="max-width: 350px; width: 100%; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 5px solid white;">
+      <p style="margin-top: 15px; color: var(--warna-teks); font-weight: 600;">
+      </p>
+    </div>
+  </div>
+</div>
+
+  <!--Pengajar -->
+  <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+  <div class="text-center" style="margin-bottom: 40px;">
+    <h2 style="color: var(--warna-utama); font-weight: 700; font-size: 32px; margin-bottom: 10px;">
+      Guru Pengajar
+    </h2>
+    <div style="width: 70px; height: 4px; background: var(--warna-aksen); margin: 0 auto; border-radius: 2px;"></div>
+  </div>
+
+    <!-- BARIS 1 -->
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/kepsek.jpeg" alt="Kepala Sekolah" class="foto-pengajar">
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">NURLIANA, S.Pd.Gr</h3> <!-- S.Pdi.Gr -> S.Pd.Gr -->
+            <span class="jabatan-pengajar">Kepala Sekolah</span>
+            <p class="mapel-pengajar">Manajemen Pendidikan</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/devi.jpeg" alt="Guru Matematika" class="foto-pengajar">
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">Devi Olimpia, S.Pd.Gr</h3>
+            <span class="jabatan-pengajar">Wakil Kepala Sekolah</span>
+            <p class="mapel-pengajar">Guru Matematika</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/nema.png" alt="Guru Bahasa Inggris" class="foto-pengajar">
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">Nemahati Siregar, S.Pd.Gr</h3> <!-- Kasih spasi -->
+            <span class="jabatan-pengajar">Guru Bahasa Inggris</span>
+            <p class="mapel-pengajar">Bahasa Inggris</p> <!-- Ditambahin biar sama -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/linda.png" alt="Guru PKN" class="foto-pengajar">
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">Linda Ramisah</h3>
+            <span class="jabatan-pengajar">Guru PKN</span>
+            <p class="mapel-pengajar">Pendidikan Pancasila & Kewarganegaraan</p> <!-- Ditambahin -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BARIS 2 -->
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/dina.jpeg" alt="Guru Sejarah Indonesia" class="foto-pengajar">
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">Dina Idriani, S.Pd</h3>
+            <span class="jabatan-pengajar">Guru Sejarah</span>
+            <p class="mapel-pengajar">Sejarah Indonesia</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/yunita.jpeg" alt="Guru Informatika" class="foto-pengajar">
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">Yunita, S.Kom.Gr</h3>
+            <span class="jabatan-pengajar">Guru Informatika</span>
+            <p class="mapel-pengajar">Produktif RPL/TKJ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/dhea.jpeg" alt="Guru Desain Grafis" class="foto-pengajar">
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">Dhea Ramadhani, S.Kom</h3>
+            <span class="jabatan-pengajar">Guru Produktif</span>
+            <p class="mapel-pengajar">Desain Grafis, SKD</p> <!-- Dipisah biar rapi -->
+          </div>
+        </div>
+      </div>
+
+      <!-- BARIS 2 - Contoh yang dibenerin -->
+      <div class="col-md-3 col-sm-6">
+        <div class="box-pengajar">
+          <div class="foto-pengajar-wrapper">
+            <img src="images/WhatsApp_Image_2026-06-19_at_20.19.01-removebg-preview.png" alt="Wahyu - Guru Teknik Sepeda Motor" class="foto-pengajar"> <!-- Nama file diganti -->
+          </div>
+          <div class="pengajar-body">
+            <h3 class="nama-pengajar">Wahyu</h3>
+            <span class="jabatan-pengajar">Guru TSM</span>
+            <p class="mapel-pengajar">Teknik Sepeda Motor</p>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+    <!-- Footer -->
+    <footer class="footer-smk">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+            <div class="footer-kiri">
+              <img src="images/logo.jpg.png" alt="Logo SMK Nusa Indah" class="logo-footer">
+              <h4>SMK Nusa Indah</h4>
+              <p>
+                Jl. Trans Blok M Desa Telaga Jernih<br>
+                Kec. Secanggang, Kab. Langkat<br>
+                Sumatera Utara
+                <p><a href="https://maps.app.goo.gl/VFzoyUsN2knWfqGu9" target="_blank">Lihat di Maps ➡️</a></p>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-12">
+            <h4>Jam Operasional</h4>
+            <ul class="footer-kontak">
+              <li>📅 Senin - Kamis : 07.00 - 15.00 WIB</li>
+              <li>📅 Jumat : 07.00 - 11.30 WIB</li>
+              <li>📅 Sabtu : 07.00 - 12.00 WIB</li>
+              <li>📅 Minggu & Tanggal Merah : Libur</li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 col-sm-12">
+            <h4>Hubungi Kami</h4>
+            <ul class="footer-kontak">
+              <li>📞 0831-4686-8730</li>
+              <li>📧 smknusaindah@gmail.com</li>
+              <li>🌐 www.smknusaindah.sch.id</li>
+            </ul>
+            
+            <div class="sosmed">
+              <a href="https://www.facebook.com/profile.php?id=100074307311354" target="_blank">f</a>
+              <a href="https://www.instagram.com/yaspen_nusaindah2020?igsh=MTUxNDlyMmhqbnQ4Zw==" target="_blank">📷</a>
+              <a href="https://youtube.com/@nusaindahentertainment3180?si=Z81bjPsWWlPOYQBB" target="_blank">▶</a>
+            </div> 
+          </div>
+        </div>
+
+        <div class="footer-bawah">
+          <p>Design by:Indah Rahma Dhani.</p>
+        </div>
+      </div>
+    </footer>
+      <script src="bootstrap/js/jQuery.js"></script>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+    </html>

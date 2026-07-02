@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sejarah - SMK Nusa Indah</title>
+  
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* STYLE SMK NUSA INDAH - TEMA TREP 3 */
+   :root {
+  --warna-utama: #1e3a8a;
+  --warna-aksen: #fbbf24;
+  --warna-teks: #1f2937;
+  --warna-bg: #f8fafc;
+}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--warna-bg);
+    }
+
+     /* Navbar */
+    .navbar-default {
+      background: var(--warna-utama);
+      border: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      margin-bottom: 0;
+      min-height: 70px;
+    }
+    
+    .navbar-nav > li > a {
+      color: white !important;
+      font-weight: 700;
+      line-height: 40px;
+      transition: 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .navbar-nav > li.active > a,
+    .navbar-nav > li > a:hover {
+      background: rgba(255,255,255,0.15) !important;
+      color: white !important;
+      border-bottom: 3px solid white;
+    }
+    
+    .navbar-brand img {
+      height: 50px !important;
+      width: auto;
+    }
+    
+    .navbar-toggle .icon-bar {
+      background-color: white;
+    }
+
+    /* Banner Judul */
+    .banner-page {
+      background: linear-gradient(rgba(30,58,138,0.85), rgba(30,58,138,0.85)), url('images/bg-sejarah.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .banner-page h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .banner-page p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--warna-utama);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      width: 50%;
+      padding: 0 30px;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--warna-aksen);
+      border: 4px solid var(--warna-utama);
+      border-radius: 50%;
+      top: 0;
+    }
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+    .timeline-year {
+      background: var(--warna-utama);
+      color: white;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .timeline-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    }
+    .timeline-content h4 {
+      color: var(--warna-utama);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .banner-page h1 { font-size: 32px; }
+      .sejarah-wrapper { padding: 25px 20px; }
+      .timeline::before { left: 20px; }
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+        text-align: left !important;
+      }
+      .timeline-item::after { left: 10px !important; }
+    }
+
+    /* Sejarah Content */
+    .sejarah-wrapper {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      margin-bottom: 30px;
+    }
+
+    .foto-pendiri {
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 5px solid var(--warna-aksen);
+      margin: 0 auto 30px;
+      display: block;
+    }
+
+    .judul-seksi {
+      color: var(--warna-utama);
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .judul-seksi::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--warna-aksen);
+    }
+
+    .vm-box {
+      background: var(--warna-bg);
+      border-left: 4px solid var(--warna-utama);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+    .vm-box h4 {
+      color: var(--warna-utama);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .vm-box p {
+      color: var(--warna-teks);
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    /* Footer */
+    .footer-smk {
+      background: var(--warna-utama);
+      color: white;
+      padding: 50px 0 20px 0;
+      margin-top: 60px;
+    }
+    .footer-smk h4 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 18px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-smk h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--warna-aksen);
+    }
+    .logo-footer {
+      width: 80px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+    .footer-kiri p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #d1d5db;
+    }
+    .footer-kontak {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+    .footer-kontak li {
+      margin-bottom: 12px;
+    }
+    .sosmed {
+      margin-top: 15px;
+    }
+    .sosmed a {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      text-align: center;
+      line-height: 35px;
+      border-radius: 50%;
+      margin-right: 8px;
+      transition: 0.3s;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .sosmed a:hover {
+      background: var(--warna-aksen);
+      color: #000;
+      transform: translateY(-3px);
+    }
+    .footer-bawah {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 30px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+   </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle Nav</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="pengajar.html">Pengajar</a></li>
+          <li class="active"><a href="sejarah.html">Sejarah <span class="sr-only">(current)</span></a></li>
+           <li><a href="fasilitas.html">Fasilitas</a></li>
+          <li><a href="ekskul.html">Ekskul</a></li>
+          <li><a href="Galeri.html">Galeri</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jurusan<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="tkj.html">TKJ</a></li>
+            <li><a href="tsm.html">TSM</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Judul Sejarah -->
+<div class="banner-page">
+  <div class="banner-box">
+    <h1>SEJARAH SEKOLAH</h1>
+    <p>Mengenal perjalanan SMK Nusa Indah dari awal berdiri</p>
+  </div>
+</div>
+
+  <!-- Isi Sejarah -->
+  <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    
+    <div class="sejarah-wrapper">
+      <!-- Pendiri -->
+      <div class="text-center">
+        <img src="images/foto yayasan.png" alt="Pendiri SMK Nusa Indah" class="foto-pendiri">
+        <h3 style="color: var(--warna-utama); font-weight: 700; margin-bottom: 5px;">KAMALUDDIN S.Pd</h3>
+        <p style="color: #6b7280; font-style: italic;">Pendiri & Ketua Yayasan Nusa Indah</p>
+      </div>
+
+      <p style="font-size: 16px; line-height: 1.8; color: var(--warna-teks); text-align: justify; margin-top: 30px;">
+        SMK Nusa Indah didirikan pada tahun 2015 sebagai bentuk kepedulian terhadap dunia pendidikan vokasi di Kabupaten Langkat. Berawal dari 1 jurusan dan 3 siswa, kini SMK Nusa Indah telah berkembang menjadi 2 jurusan pada tahun 2022 dengan jumlah siswa 309 siswa.
+      </p>
+
+      <!-- Visi Misi -->
+      <h3 class="judul-seksi" style="margin-top: 50px;">Visi & Misi</h3>
+      <div class="vm-box">
+        <h4>Visi</h4>
+        <p>Terwujudnya SMK Nusa Indah sebagai lembaga Diklat yang mampu menyiapkan tamatan menjadi calon tenaga kerja yang trampil, produktif, profesional, dan mandiri berdasarkan kejuruanya masing-masing.</p>
+      </div>
+      <div class="vm-box">
+        <h4>Misi</h4>
+        <li>1. Menanamkan nilai-nilai keimanan dan ketaqwaan terhadap Tuhan Yang maha Esa berdasarkan aqidah Islam</li>
+          <li>2. Melaksanakan pendidikan dan pelatihan dengan disiplin, aktif dan kreatif</li>
+          <li>3. Mendorong dan membantu siswa mengenali dirinya sehingga dapat dikembangkan secara optimal</li>
+          <li>4. Menumbuhkan semangat prestasi secara intensif</li>
+          <li>5. Menyiapkan tenaga kerja yang trampil dan professional dibidang teknologi sehingga mampu bersaing dipasar nasional maupun global.</li>
+      </div>
+
+      <!-- Timeline -->
+      <h3 class="judul-seksi" style="margin-top: 50px;">Perjalanan Kami</h3>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-content">
+            <h4>Didirikan</h4>
+          <p>SMK Nusa Indah resmi berdiri di Kabupaten Langkat dengan membuka 1 Program Keahlian, yaitu Teknik Komputer dan Jaringan (TKJ). Pada angkatan pertama, sekolah menerima 3 siswa.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-content">
+           <h4>Perkembangan Awal</h4>
+           <p>Jumlah peserta didik mengalami peningkatan signifikan menjadi 25 siswa. Hal ini menjadi tonggak awal perkembangan SMK Nusa Indah di masyarakat.</p>
+          </div>
+        </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-content">
+          <h4>Meraih Akreditasi B</h4>
+          <p>SMK Nusa Indah resmi meraih Akreditasi B dari BAN-S/M. Capaian ini menunjukkan komitmen sekolah dalam meningkatkan kualitas manajemen, proses belajar mengajar, dan lulusan yang kompeten.</p>
+        </div>
+      </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content">
+           <h4>Pembukaan Jurusan Baru</h4>
+          <p>SMK Nusa Indah membuka Program Keahlian baru, yaitu Teknik Sepeda Motor (TSM). Pada tahun ini, total jumlah siswa mencapai 309 siswa.</p> 
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-content">
+            <h4>Meraih Akreditasi B</h4>
+            <p>SMK Nusa Indah berhasil meraih Akreditasi B dari BAN-S/M. Sebanyak 90% lulusan berhasil terserap di dunia kerja atau berwirausaha dalam 6 bulan setelah lulus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-smk">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="footer-kiri">
+            <img src="logo.jpg.PNG" alt="Logo SMK Nusa Indah" class="logo-footer">
+            <h4>SMK Nusa Indah</h4>
+            <p>
+              Jl. Trans Blok M Desa Telaga Jernih<br>
+              Kec. Secanggang, Kab. Langkat<br>
+              Sumatera Utara
+               <p><a href="https://maps.app.goo.gl/VFzoyUsN2knWfqGu9" target="_blank">Lihat di Maps ➡️</a></p>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+          <h4>Jam Operasional</h4>
+          <ul class="footer-kontak">
+            <li>📅 Senin - Kamis : 07.00 - 15.00 WIB</li>
+            <li>📅 Jumat : 07.00 - 11.30 WIB</li>
+            <li>📅 Sabtu : 07.00 - 12.00 WIB</li>
+            <li>📅 Minggu & Tanggal Merah : Libur</li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+          <h4>Hubungi Kami</h4>
+          <ul class="footer-kontak">
+            <li>📞 0831-4686-8730</li>
+            <li>📧 smknusaindah@gmail.com</li>
+            <li>🌐 www.smknusaindah.sch.id</li>
+          </ul>
+          
+         <div class="sosmed">
+              <a href="https://www.facebook.com/profile.php?id=100074307311354" target="_blank">f</a>
+              <a href="https://www.instagram.com/yaspen_nusaindah2020?igsh=MTUxNDlyMmhqbnQ4Zw==" target="_blank">📷</a>
+              <a href="https://youtube.com/@nusaindahentertainment3180?si=Z81bjPsWWlPOYQBB" target="_blank">▶</a>
+            </div> 
+          </div>
+        </div>
+
+        <div class="footer-bawah">
+          <p>Design by:Indah Rahma Dhani.</p>
+        </div>
+      </div>
+  </footer>
+
+  <script src="bootstrap/js/jQuery.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
